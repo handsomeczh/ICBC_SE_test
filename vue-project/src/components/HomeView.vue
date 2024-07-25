@@ -5,8 +5,8 @@
       <div class="header-title">持有金豆</div>
       <div class="header-number">{{ number.toFixed(2) }} g</div>
     </el-row>
-    <!-- todo 持有数据 -->
-    <el-row justify="center" class="footer">
+    <!-- region todo 持有数据 -->
+    <el-row justify="space-between" class="footer">
         <div class="stat-item">
           <div class="title">昨日收益</div>
           <div class="value">¥ {{ yesterdayEarn.toFixed(2) }}</div>
@@ -22,6 +22,7 @@
       <!-- 提醒事项 -->
 <!--      <WarningPop />-->
     </el-row>
+    <!-- endregion 持有数据 -->
     <el-row type="flex" justify="space-around" class="main-content">
 
       <!-- todo 快捷购买弹窗 -->
@@ -30,21 +31,16 @@
       <GoldPricePop/>
       <!-- todo 转赠界面跳转 -->
       <el-button type="primary" class="gift" @click="goToGift">转赠</el-button>
-      <!-- todo 金罐界面 -->
-      <div class="gold-tank">
-        <img class="gold-tank-content" src="@/assets/豆子1@2x.png"/>
-      </div>
       <!-- todo 个性化弹窗：图片url for -->
       <DiyPop/>
       <!-- todo 向我提问弹窗 -->
       <AskPop/>
     </el-row>
 
-    <!-- endregion 持有数据 -->
     <!-- region todo 提现和买入窗口跳转 -->
-    <el-row type="flex" justify="space-around" class="actions">
-      <el-button type="primary" @click="goToCash" class="cash">提现</el-button>
-      <el-button type="primary" @click="goToBuy" class="buy">买入</el-button>
+    <el-row class="actions">
+      <el-button type="primary" plain @click="goToCash" class="action-button cash-button">提现</el-button>
+      <el-button type="primary" plain @click="goToBuy" class="action-button buy-button">买入</el-button>
     </el-row>
     <!-- endregion 提现和买入 -->
   </div>
@@ -80,7 +76,7 @@ const goToBuy = () => {
 };
 
 // 主页数据(后端获取)
-const number = ref(1);
+const number = ref(30.2);
 const yesterdayEarn = ref(2.08);
 const earn = ref(17.50);
 const allEarn = ref(347.00);
@@ -92,7 +88,6 @@ const allEarn = ref(347.00);
   flex-direction: column;
   height: 100vh; /* 使用视口高度 */
   width: 100vw; /* 使用视口高度 */
-  padding: 10px;
   max-width: 100%;
   margin: 0 auto;
   background-image: url('@/assets/bg@2x@2x.png'); /* 背景图片路径 */
@@ -147,26 +142,11 @@ const allEarn = ref(347.00);
   flex: 1 1 45%;
 }
 
-.gold-tank {
-  position: relative;
-  width: 30vw; /* 使用视口宽度 */
-  height: 30vw; /* 使用视口宽度 */
-  margin: 20px auto;
-}
-
-.gold-tank-content {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
 .footer {
   display: flex;
-  justify-content: space-between; /* 均匀分布 */
-  align-items: center; /* 水平居中 */
-  flex: 1; /* 使其占据可用的剩余空间 */
+  justify-content: space-between; /* 横向均匀分布 */
+  align-items: center; /* 垂直居中 */
+  width: 100%; /* 占据父容器的全部宽度 */
   margin-top: 10px;
 }
 
@@ -176,13 +156,14 @@ const allEarn = ref(347.00);
   justify-content: center; /* 水平和垂直居中内容 */
   flex-direction: column; /* 纵向排列 */
   background-image: url('@/assets/小卡片@2x.png'); /* 背景图片路径 */
-  background-size: auto; /* 保持原始尺寸 */
+  background-size: cover; /* 背景图片自适应填充 */
   background-repeat: no-repeat;
   background-position: center center;
-  width: 100%; /* 设置固定宽度，使背景图片显示在框里 */
-  padding: 40px; /* 调整 padding 以增加悬浮效果 */
-
+  width: 30%; /* 设置宽度，使三个元素均匀分布 */
+  padding: 20px; /* 调整 padding 以适应布局 */
+  box-sizing: border-box; /* 包括 padding 在内计算元素宽度 */
 }
+
 
 .title {
   font-weight: bold;
@@ -199,10 +180,33 @@ const allEarn = ref(347.00);
 
 .actions {
   display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-  height: 10vh; /* 使用视口高度 */
+  justify-content: space-between; /* 横向均匀分布 */
+  align-items: center; /* 垂直居中 */
+  width: 100%; /* 占据父容器的全部宽度 */
+  margin-top: 10px;
+  z-index: 1000; /* 确保按钮层在页面其他内容之上 */
+  padding: 0; /* 移除内边距 */
 }
+
+.action-button {
+  flex: 1; /* 按钮占据可用空间 */
+  margin: 0; /* 移除按钮之间的间距 */
+  border-radius: 0; /* 使按钮的边角变为直角 */
+  height: 70px; /* 设置按钮高度 */
+}
+
+.cash-button {
+  background-color: #caae76; /* 按钮背景色，根据图片示例设置 */
+  border-color: #caaf77; /* 按钮边框色，与背景色一致 */
+  color: #594d37; /* 字体颜色 */
+}
+
+.buy-button {
+  background-color: #f9b628; /* 按钮背景色，根据图片示例设置 */
+  border-color: #f9b628; /* 按钮边框色，与背景色一致 */
+  color: #5a4e39; /* 字体颜色 */
+}
+
 
 
 
