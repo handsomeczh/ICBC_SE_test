@@ -6,17 +6,19 @@
   </div>
   <el-dialog
       v-model="goToQuickPop"
-      title="快捷购买"
       width="98%"
+      class="q-dialog-center"
   >
     <el-form label-width="100px" class="form-container">
-      <el-form-item label="克数：">
-        {{ gram }}
+      <div class="current">当前实时金价 <span style="color: #cfac34">{{ state.currentPrice.toFixed(2) }}元/g</span>
+      </div>
+      <el-form-item>
+        克数(g)：{{ gram }}
       </el-form-item>
-      <el-form-item label="金额：">{{ (state.currentPrice * gram).toFixed(2) }}</el-form-item>
+      <el-form-item class="el-form-item__content">金额(元)：{{ (state.currentPrice * gram).toFixed(2) }}</el-form-item>
     </el-form>
     <template #footer>
-      <el-button type="primary" @click="handleConfirm">确认</el-button>
+      <el-button color="#f5c153" size="large"  @click="handleConfirm">确认</el-button>
     </template>
   </el-dialog>
 </template>
@@ -63,7 +65,44 @@ const handleConfirm = () => {
   background-image: url('@/assets/10g金图标@2x.png'); /* 背景图片路径 */
 }
 
+</style>
+
+<style>
 /*弹窗*/
+.q-dialog-center {
+  width: 350px; /* 固定宽度 */
+  height: 290px; /* 固定高度 */
+  background-color: transparent; /* 弹窗背景颜色 */
+  background-image: url('@/assets/快捷购买弹窗@2x.png');
+  background-size: contain; /* 覆盖整个元素 */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 10px;
+}
+
+.el-dialog__footer {
+  padding-top: 1px;
+  text-align: right;
+  background-color: transparent; /* 透明背景 */
+}
+
+.el-form-item {
+  height: 5vh;
+  margin-top: 2vh;
+  background-color: #FFFFFF;
+  padding-top: 5px;
+}
+
+.el-form-item__content {
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+
+.current {
+  margin-top: 3vh;
+}
 
 
 </style>
