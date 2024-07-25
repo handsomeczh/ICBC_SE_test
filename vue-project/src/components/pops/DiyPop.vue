@@ -1,5 +1,7 @@
+
+
 <template>
-  <el-button type="text" class="personalize" plain @click="goToDiyPop = true">个性化</el-button>
+  <el-button type="text" class="personalize" plain @click="goToDiyPop = true"></el-button>
   <el-dialog v-model="goToDiyPop" width="98%">
     <el-scrollbar height="400px">
       <span>金罐皮肤</span>
@@ -39,8 +41,13 @@ const squareUrl = ref("@/assets/豆子1@2x.png");
 
 <style scoped>
 .personalize {
+  width: 60px;
+  height: 60px;
   margin: 10px;
-  flex: 1 1 45%;
+  flex: 1 1% 1%;
+  background-image: url('@/assets/换装扮@2x.png'); /* 背景图片路径 */
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .demo-basic {

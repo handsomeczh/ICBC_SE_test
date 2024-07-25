@@ -1,5 +1,8 @@
+
+
+
 <template>
-  <el-button class="price-trend" plain @click="goToGoldPricePop = true">金价走势</el-button>
+  <el-button type="text" class="price-trend" plain @click="goToGoldPricePop = true"></el-button>
   <el-dialog
       v-model="goToGoldPricePop"
       width="98%"
@@ -189,7 +192,12 @@ onMounted(() => {
 
 <style scoped>
 .price-trend {
+  width: 60px;
+  height: 60px;
   margin: 10px;
-  flex: 1 1 45%;
+  flex: 1 1% 45%;
+  background-image: url('@/assets/金价走势@2x.png'); /* 背景图片路径 */
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 </style>

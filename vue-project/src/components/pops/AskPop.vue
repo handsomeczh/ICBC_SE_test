@@ -1,6 +1,6 @@
 <template>
   <!-- todo 向我提问弹窗 -->
-  <el-button type="text" class="ask-me" plain @click="openDialog">向我提问</el-button>
+  <el-button type="text" class="ask-me" plain @click="openDialog"></el-button>
   <el-dialog
       v-model="goToAskPop"
       width="98%"
@@ -125,7 +125,15 @@ const askAI = () => {
 
 <style scoped>
 .ask-me {
-  margin: 10px;
+  width: 110px;
+  height: 110px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: 20px;
+  flex: 1 1% 1%;
+  background-image: url('@/assets/点我提问@3x.png'); /* 背景图片路径 */
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 

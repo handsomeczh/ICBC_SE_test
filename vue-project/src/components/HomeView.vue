@@ -1,9 +1,11 @@
+
+
 <template>
   <div class="home-view">
     <el-row class="header">
       <!-- 返回上一级界面 -->
       <div class="header-title">持有金豆</div>
-      <div class="header-number">{{ number.toFixed(2) }} g</div>
+      <div class="header-title">{{ number.toFixed(2) }} g</div>
     </el-row>
     <!-- region todo 持有数据 -->
     <el-row justify="space-between" class="footer">
@@ -23,19 +25,28 @@
 <!--      <WarningPop />-->
     </el-row>
     <!-- endregion 持有数据 -->
-    <el-row type="flex" justify="space-around" class="main-content">
 
-      <!-- todo 快捷购买弹窗 -->
-      <QuickPop/>
+    <!-- todo 快捷购买弹窗 -->
+    <QuickPop/>
+
+    <!-- todo 向我提问弹窗 -->
+    <AskPop/>
+
+    <el-row  class="main-content">
       <!-- todo 积存金走势 -->
       <GoldPricePop/>
+    </el-row>
+
+    <el-row  class="main-content">
       <!-- todo 转赠界面跳转 -->
-      <el-button type="primary" class="gift" @click="goToGift">转赠</el-button>
+      <el-button type="text" class="gift" @click="goToGift"></el-button>
+    </el-row>
+
+    <el-row  class="main-content">
       <!-- todo 个性化弹窗：图片url for -->
       <DiyPop/>
-      <!-- todo 向我提问弹窗 -->
-      <AskPop/>
     </el-row>
+
 
     <!-- region todo 提现和买入窗口跳转 -->
     <el-row class="actions">
@@ -88,24 +99,18 @@ const allEarn = ref(347.00);
   flex-direction: column;
   height: 100vh; /* 使用视口高度 */
   width: 100vw; /* 使用视口高度 */
-  max-width: 100%;
-  margin: 0 auto;
   background-image: url('@/assets/bg@2x@2x.png'); /* 背景图片路径 */
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  height: 5vh; /* 固定高度 */
+  height: 6vh; /* 固定高度 */
   width: 100%; /* 固定宽度 */
   background-image: url('@/assets/持有金豆背景@2x.png'); /* header 背景图片路径 */
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 0 15px;
-  margin: 0 auto; /* 居中对齐 */
 }
 
 .header-title {
@@ -118,28 +123,20 @@ const allEarn = ref(347.00);
   color: #D6B8A9;
 }
 
-.header-number {
-  font-size: 18px;
-  font-weight: bold;
-  flex-grow: 1;
-  height: 2vh; /* 固定高度 */
-  width: 100%; /* 固定宽度 */
-  text-align: center;
-  color: #D6B8A9;
-}
-
 .main-content {
   flex: 1; /* 使其占据可用的剩余空间 */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-  text-align: center;
+  margin-top: -15vh;
+  justify-content: right;
 }
 
 .gift {
-  margin: 10px;
-  flex: 1 1 45%;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  flex: 1 1% 1%;
+  background-image: url('@/assets/转增@2x.png'); /* 背景图片路径 */
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .footer {
@@ -175,8 +172,6 @@ const allEarn = ref(347.00);
   font-size: 1.2em;
   color: #F68248;
 }
-
-
 
 .actions {
   display: flex;
