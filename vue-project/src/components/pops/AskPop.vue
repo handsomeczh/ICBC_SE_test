@@ -30,6 +30,7 @@
           >
             <template #append>
               <el-button icon="Pointer" @click="askAI"/>
+              <el-icon><Pointer /></el-icon>
             </template>
           </el-input>
         </el-footer>
@@ -43,6 +44,7 @@
 import { ref, onMounted, nextTick } from 'vue';
 import { ElMessage } from 'element-plus';
 import 'element-plus/es/components/message/style/css';
+import {Pointer} from "@element-plus/icons-vue";
 
 const goToAskPop = ref(false);
 const input = ref('');
@@ -51,15 +53,17 @@ const chatHistory = ref([]);
 
 // 常见问题
 const defaultQuestions = [
-  "什么是积存金",
-  "积存金买卖方式",
-  "当前积存金价格",
-  "如何兑换积存金为事物",
-  "积存金手续计算"
+  // "什么是积存金",
+  // "积存金买卖方式",
+  // "当前积存金价格",
+  // "如何兑换积存金为事物",
+  // "积存金手续计算"
+    "你好！很高兴为你服务"
 ];
 
-// 将常见问题合并为一个对话框中的一条消息
-const defaultQuestionsMessage = defaultQuestions.map((q, index) => `${index + 1}. ${q}`).join('\n');
+// 使用map方法在每个问题后面添加换行符
+// const defaultQuestionsMessage = defaultQuestions.map((q, index) => `${index + 1}. ${q}`).join('');
+const defaultQuestionsMessage = defaultQuestions.map((q) => `${q}`).join('');
 
 // 打开对话框时加载常见问题和历史记录
 const openDialog = () => {

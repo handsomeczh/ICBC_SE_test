@@ -1,67 +1,50 @@
 <template>
   <div class="home-view">
-    <el-row type="flex" justify="center" align="middle" class="header">
+    <el-row class="header">
       <!-- 返回上一级界面 -->
-      <el-button type="info" @click="goToMain"><</el-button>
-      <div class="header-title">积 存 金</div>
+      <div class="header-title">持有金豆</div>
+      <div class="header-number">{{ number.toFixed(2) }} g</div>
+    </el-row>
+    <!-- todo 持有数据 -->
+    <el-row justify="center" class="footer">
+        <div class="stat-item">
+          <div class="title">昨日收益</div>
+          <div class="value">¥ {{ yesterdayEarn.toFixed(2) }}</div>
+        </div>
+        <div class="stat-item">
+          <div class="title">持有收益</div>
+          <div class="value">¥ {{ earn.toFixed(2) }}</div>
+        </div>
+        <div class="stat-item">
+          <div class="title">累计收益</div>
+          <div class="value">¥ {{ allEarn.toFixed(2) }}</div>
+        </div>
+      <!-- 提醒事项 -->
+<!--      <WarningPop />-->
     </el-row>
     <el-row type="flex" justify="space-around" class="main-content">
+
+      <!-- todo 快捷购买弹窗 -->
+      <QuickPop/>
       <!-- todo 积存金走势 -->
       <GoldPricePop/>
       <!-- todo 转赠界面跳转 -->
       <el-button type="primary" class="gift" @click="goToGift">转赠</el-button>
-      <!-- todo 快捷购买弹窗 -->
-      <QuickPop/>
       <!-- todo 金罐界面 -->
       <div class="gold-tank">
-        <div class="gold-tank-content">
-          <div class="gold"></div>
-          <div class="gold"></div>
-          <div class="gold"></div>
-          <div class="gold"></div>
-          <div class="gold"></div>
-          <div class="gold"></div>
-        </div>
+        <img class="gold-tank-content" src="@/assets/豆子1@2x.png"/>
       </div>
       <!-- todo 个性化弹窗：图片url for -->
       <DiyPop/>
       <!-- todo 向我提问弹窗 -->
       <AskPop/>
-      <!-- todo 持有数据 -->
     </el-row>
-    <el-row type="flex" justify="center" class="footer">
-      <el-col :span="24">
-        <div class="stat-item">
-          <span class="title">持有金豆:</span>
-          <span class="value">{{ number.toFixed(2) }} g</span>
-        </div>
-      </el-col>
-      <el-col :span="24">
-        <div class="stat-item">
-          <span class="title">昨日收益:</span>
-          <span class="value">{{ yesterdayEarn.toFixed(2) }} 元</span>
-        </div>
-      </el-col>
-      <el-col :span="24">
-        <div class="stat-item">
-          <span class="title">持有收益:</span>
-          <span class="value">{{ earn.toFixed(2) }} 元</span>
-        </div>
-      </el-col>
-      <el-col :span="24">
-        <div class="stat-item">
-          <span class="title">累计收益:</span>
-          <span class="value">{{ allEarn.toFixed(2) }} 元</span>
-        </div>
-      </el-col>
-      <!-- 提醒事项 -->
-      <WarningPop />
-    </el-row>
+
     <!-- endregion 持有数据 -->
     <!-- region todo 提现和买入窗口跳转 -->
     <el-row type="flex" justify="space-around" class="actions">
-      <el-button type="primary" @click="goToCash">提现</el-button>
-      <el-button type="primary" @click="goToBuy">买入</el-button>
+      <el-button type="primary" @click="goToCash" class="cash">提现</el-button>
+      <el-button type="primary" @click="goToBuy" class="buy">买入</el-button>
     </el-row>
     <!-- endregion 提现和买入 -->
   </div>
@@ -98,36 +81,56 @@ const goToBuy = () => {
 
 // 主页数据(后端获取)
 const number = ref(1);
-const yesterdayEarn = ref(100);
-const earn = ref(200);
-const allEarn = ref(300);
+const yesterdayEarn = ref(2.08);
+const earn = ref(17.50);
+const allEarn = ref(347.00);
 </script>
 
 <style scoped>
 .home-view {
   display: flex;
   flex-direction: column;
-  height: 95vh; /* 使用视口高度 */
+  height: 100vh; /* 使用视口高度 */
+  width: 100vw; /* 使用视口高度 */
   padding: 10px;
   max-width: 100%;
   margin: 0 auto;
+  background-image: url('@/assets/bg@2x@2x.png'); /* 背景图片路径 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .header {
   display: flex;
   align-items: center;
-  height: 10vh; /* 使用视口高度 */
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #ddd;
+  height: 5vh; /* 固定高度 */
+  width: 100%; /* 固定宽度 */
+  background-image: url('@/assets/持有金豆背景@2x.png'); /* header 背景图片路径 */
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 0 15px;
+  margin: 0 auto; /* 居中对齐 */
 }
 
 .header-title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   flex-grow: 1;
+  height: 2vh; /* 固定高度 */
+  width: 100%; /* 固定宽度 */
   text-align: center;
-  color: #ffd000;
+  color: #D6B8A9;
+}
+
+.header-number {
+  font-size: 18px;
+  font-weight: bold;
+  flex-grow: 1;
+  height: 2vh; /* 固定高度 */
+  width: 100%; /* 固定宽度 */
+  text-align: center;
+  color: #D6B8A9;
 }
 
 .main-content {
@@ -148,8 +151,6 @@ const allEarn = ref(300);
   position: relative;
   width: 30vw; /* 使用视口宽度 */
   height: 30vw; /* 使用视口宽度 */
-  border: 2px solid green;
-  border-radius: 50% 50% 0 0;
   margin: 20px auto;
 }
 
@@ -157,44 +158,44 @@ const allEarn = ref(300);
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 50%;
+  height: 100%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: yellow;
-  overflow: hidden;
-}
-
-.gold {
-  width: 10vw; /* 使用视口宽度 */
-  height: 10vw; /* 使用视口宽度 */
-  background-color: gold;
-  border-radius: 50%;
 }
 
 .footer {
+  display: flex;
+  justify-content: space-between; /* 均匀分布 */
+  align-items: center; /* 水平居中 */
   flex: 1; /* 使其占据可用的剩余空间 */
-  margin-top: 20px;
-  text-align: center;
+  margin-top: 10px;
 }
 
 .stat-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #ebebeb;
+  justify-content: center; /* 水平和垂直居中内容 */
+  flex-direction: column; /* 纵向排列 */
+  background-image: url('@/assets/小卡片@2x.png'); /* 背景图片路径 */
+  background-size: auto; /* 保持原始尺寸 */
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%; /* 设置固定宽度，使背景图片显示在框里 */
+  padding: 40px; /* 调整 padding 以增加悬浮效果 */
+
 }
 
 .title {
   font-weight: bold;
-  color: #333;
+  color: #CDBEB7;
+  margin-bottom: 10px; /* 增加间距 */
 }
 
 .value {
   font-size: 1.2em;
-  color: #666;
+  color: #F68248;
 }
+
+
 
 .actions {
   display: flex;
@@ -202,4 +203,7 @@ const allEarn = ref(300);
   margin-top: 20px;
   height: 10vh; /* 使用视口高度 */
 }
+
+
+
 </style>

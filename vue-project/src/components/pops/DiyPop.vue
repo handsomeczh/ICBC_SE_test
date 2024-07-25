@@ -34,7 +34,7 @@ import {MagicStick} from "@element-plus/icons-vue";
 import {ref} from "vue";
 
 const goToDiyPop = ref(false);
-const squareUrl = ref('https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png');
+const squareUrl = ref("@/assets/豆子1@2x.png");
 </script>
 
 <style scoped>
