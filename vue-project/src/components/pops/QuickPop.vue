@@ -4,7 +4,7 @@
     <el-button type="text" class="gold-button gold-button5" plain @click="goToQuickPop = true, gram = 1"></el-button>
     <el-button type="text" class="gold-button gold-button10" plain @click="goToQuickPop = true, gram = 1"></el-button>
   </div>
-  <el-dialog
+  <el-dialog :show-close="false"
       v-model="goToQuickPop"
       width="98%"
       class="q-dialog-center"
@@ -99,11 +99,9 @@ const handleConfirm = () => {
 
 }
 
-
 .current {
   margin-top: 3vh;
 }
-
 
 </style>
 

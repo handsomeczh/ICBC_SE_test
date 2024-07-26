@@ -1,6 +1,6 @@
 <template>
   <el-button type="text" class="personalize" plain @click="goToDiyPop = true"></el-button>
-  <el-dialog
+  <el-dialog :show-close="false"
       v-model="goToDiyPop"
       width="98%"
       class="diy-dialog-center"
@@ -120,4 +120,5 @@ const getImageUrl = (name) => {
   background-position: center;
   padding-top: 30px;
 }
+
 </style>
