@@ -43,7 +43,7 @@
     </el-row>
 
     <el-row  class="main-content">
-      <!-- todo 个性化弹窗：图片url for -->
+      <!-- todo 个性化弹窗 -->
       <DiyPop/>
     </el-row>
 

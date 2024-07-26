@@ -6,40 +6,67 @@
       class="diy-dialog-center"
   >
     <el-scrollbar height="400px">
+      <div>
+        <el-row class="demo-can" :gutter="20">
+          <el-col v-for="(item, index) in goldCanSkins" :key="index" :span="6">
+            <div class="block" :class="{selected: selectedGoldCanSkin === index}" @click="selectGoldCanSkin(index)">
+              <el-avatar  shape="square" :size="80" :src="item"/>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
 
-      <el-row class="demo-can" :gutter="20">
-        <el-col v-for="(item, index) in 3" :key="index" :span="6">
-          <div class="block">
-            <el-avatar shape="square" :size="50" :src="squareUrl"/>
-          </div>
-        </el-col>
-      </el-row>
-
-      <el-row class="demo-gold" :gutter="20">
-        <el-col v-for="(item, index) in 4" :key="index" :span="6">
-          <div class="block">
-            <el-avatar shape="square" :size="50" :src="squareUrl"/>
-          </div>
-        </el-col>
-      </el-row>
-
+      <div>
+        <el-row class="demo-gold" :gutter="20">
+          <el-col v-for="(item, index) in goldBeanSkins" :key="index" :span="6">
+            <div class="block" :class="{selected: selectedGoldBeanSkin === index}" @click="selectGoldBeanSkin(index)">
+              <el-avatar shape="square" :size="50" :src="item"/>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
     </el-scrollbar>
     <template #footer>
-      <el-button color="#f5c153" size="large"   @click="diyConfirm">确认</el-button>
+      <el-button color="#f5c153" size="large" class="confirm-button" @click="diyConfirm">确认</el-button>
     </template>
   </el-dialog>
 </template>
 
 <script setup>
 import {ref} from "vue";
-import router from "@/router/index.js";
+// 导入图片并存储在数组中
+import can1 from '@/assets/小兔罐@2x.png';
+import can2 from '@/assets/小象罐@2x.png';
+import can3 from '@/assets/小鼠罐@2x.png';
+const goldCanSkins = [can1, can2, can3];
+// 导入图片并存储在数组中
+import bean1 from '@/assets/豆子1@2x.png';
+import bean2 from '@/assets/豆子2@2x.png';
+import bean3 from '@/assets/豆子3@2x.png';
+import bean4 from '@/assets/豆子4@2x.png';
+const goldBeanSkins = [bean1, bean2, bean3,bean4];
 
 const goToDiyPop = ref(false);
-const squareUrl = ref("@/assets/豆子1@2x.png");
+
+
+const selectedGoldCanSkin = ref(null);
+const selectedGoldBeanSkin = ref(null);
+
+const selectGoldCanSkin = (index) => {
+  selectedGoldCanSkin.value = index;
+};
+
+const selectGoldBeanSkin = (index) => {
+  selectedGoldBeanSkin.value = index;
+};
 
 const diyConfirm = () => {
   // todo 这里可以添加提交表单的逻辑
   goToDiyPop.value = false;
+};
+
+const getImageUrl = (name) => {
+  return new URL(`../assets/${name}`, import.meta.url).href;
 };
 </script>
 
@@ -54,25 +81,32 @@ const diyConfirm = () => {
   background-size: contain;
 }
 
-.demo-can {
+.demo-can{
   padding-top: 50px;
+  padding-left: 10px;
   text-align: center;
 }
 
 .demo-gold {
-  padding-top: 120px;
+  padding-top: 100px;
+  padding-left: 10px;
   text-align: center;
 }
 
-.demo-basic .block:not(:last-child) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  border-right: 1px solid var(--el-border-color);
-  flex: 1;
+.block {
+  cursor: pointer;
+  border: 2px solid transparent;
 }
 
+.block.selected {
+  border: 2px solid #f5c153;
+}
+
+.confirm-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
 </style>
 
 <style>
