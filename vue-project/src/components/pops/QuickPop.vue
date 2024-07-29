@@ -1,8 +1,8 @@
 <template>
   <div class="gold-buttons">
     <el-button type="text" class="gold-button gold-button1" plain @click="goToQuickPop = true, gram = 1"></el-button>
-    <el-button type="text" class="gold-button gold-button5" plain @click="goToQuickPop = true, gram = 1"></el-button>
-    <el-button type="text" class="gold-button gold-button10" plain @click="goToQuickPop = true, gram = 1"></el-button>
+    <el-button type="text" class="gold-button gold-button5" plain @click="goToQuickPop = true, gram = 5"></el-button>
+    <el-button type="text" class="gold-button gold-button10" plain @click="goToQuickPop = true, gram = 10"></el-button>
   </div>
   <el-dialog :show-close="false"
       v-model="goToQuickPop"
