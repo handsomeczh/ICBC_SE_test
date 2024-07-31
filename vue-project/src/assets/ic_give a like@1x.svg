@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="16px" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic_give a like</title>
+    <g id="页面-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01-4用户助手" transform="translate(-99, -650)">
+            <g id="助手回答" transform="translate(20, 439)">
+                <g id="复制/赞/踩" transform="translate(17.8117, 207)">
+                    <g id="赞" transform="translate(61.7125, 0)">
+                        <g id="ic_give-a-like" transform="translate(0, 4)">
+                            <path d="M0,0 L15.5241636,0 L15.5241636,16 L0,16 Z" id="thumb-up-(Background)"></path>
+                            <path d="M12.8260863,6 C13.4573102,6 13.9204716,6.61138868 13.7673778,7.24253559 L12.3119865,13.2425356 C12.2040053,13.6877031 11.8159173,14 11.3706959,14 L2.91078067,14 C2.37492078,14 1.94052045,13.5522842 1.94052045,13 L1.94052045,8 C1.94052045,7.44771528 2.37492078,7 2.91078067,7 L4.85130112,7 L6.79182156,2 L8.73234201,2 C9.2682019,2 9.70260223,2.44771528 9.70260223,3 L9.70260223,6 L12.8260863,6 Z M5.82156134,13 L11.3706959,13 L12.8260872,7 L8.73234201,7 L8.73234201,3 L7.4487197,3 L5.82156134,7.19258261 L5.82156134,13 Z M2.91078067,8 L2.91078067,13 L4.85130112,13 L4.85130112,8 L2.91078067,8 Z" id="thumb-up" fill="#000000"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

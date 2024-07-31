@@ -53,16 +53,16 @@ const handleConfirm = () => {
 }
 
 .gold-button1 {
-  background-image: url('@/assets/1g金图标@2x.png'); /* 背景图片路径 */
+  background-image: url('@/assets/1克.png'); /* 背景图片路径 */
 }
 
 .gold-button5 {
-  background-image: url('@/assets/5g金图标@2x.png'); /* 背景图片路径 */
+  background-image: url('@/assets/5克.png'); /* 背景图片路径 */
   margin-top: 5vh; /* 设置底部间距 */
 }
 
 .gold-button10 {
-  background-image: url('@/assets/10g金图标@2x.png'); /* 背景图片路径 */
+  background-image: url('@/assets/10克.png'); /* 背景图片路径 */
 }
 
 </style>
