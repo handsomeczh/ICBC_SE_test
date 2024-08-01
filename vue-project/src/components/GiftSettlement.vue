@@ -1,7 +1,10 @@
 <template>
   <el-container>
     <el-header>
-      <h2>赠金予卿，留爱于心</h2>
+      <div class="header">
+        <img src="../assets/arrow_right@2x.png" @click="goBack" class="back-icon">
+        <p class="header-title"><strong>赠金予卿，留爱于心</strong></p>
+      </div>
     </el-header>
     <el-main>
       <el-form :model="form" ref="form" label-width="120px">
@@ -23,16 +26,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="付款账户" prop="account">
-          <el-input v-model="form.account" placeholder="请输入"></el-input>
-        </el-form-item>
-        <el-form-item label="留言" prop="message">
-          <el-input v-model="form.message" placeholder="请输入"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-checkbox v-model="form.smsNotification">短信通知</el-checkbox>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="submitForm">确定</el-button>
+          <!-- 其他表单项 -->
         </el-form-item>
       </el-form>
     </el-main>
@@ -41,45 +35,43 @@
 
 <script>
 export default {
-  name: 'PurchasePage',
+  name: 'GiftSettlement',
   data() {
     return {
       form: {
         name: '',
         phone: '',
-        weight: 0.1,
-        equivalent: 0,
-        paymentMethod: 'bank',
-        account: '',
-        message: '',
-        smsNotification: true
+        weight: '',
+        equivalent: '',
+        paymentMethod: '',
+        account: ''
       }
     };
   },
   methods: {
-    submitForm() {
-      this.$refs.form.validate((valid) => {
-        if (valid) {
-          console.log('Form submitted:', this.form);
-          // 在这里可以添加进一步的处理逻辑，例如发送数据到服务器
-        } else {
-          alert('请填写完整的信息!');
-          return false;
-        }
-      });
+    goBack() {
+      this.$router.push({ name: 'Transfer' });
     }
   }
 };
 </script>
 
 <style scoped>
-.el-header {
-  background-color: #f5f5f5;
-  padding: 20px;
-  text-align: center;
+.header {
+  display: flex;
+  align-items: center;
 }
 
-.el-main {
-  padding: 20px;
+.back-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transform: rotate(180deg); /* 旋转180度 */
+}
+
+.header-title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 20px;
 }
 </style>
