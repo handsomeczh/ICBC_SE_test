@@ -1,5 +1,5 @@
 
-```vue
+
 <template>
   <div class="transfer-page">
     <div class="header">
@@ -72,8 +72,11 @@ export default {
 .header {
   display: flex;
   align-items: center;
-  width: 100%;
-  position: relative;
+  justify-content: center; /* 水平居中对齐 */
+  width: 100%; /* 占满整个宽度 */
+  padding: 10px 20px; /* 添加一些内边距 */
+  box-sizing: border-box; /* 包括内边距和边框在内的总宽度 */
+  position: relative; /* 使子元素可以使用绝对定位 */
 }
 
 .header-title {
@@ -88,8 +91,10 @@ export default {
 
 .back-icon {
   position: relative;
-  width: 30px;
-  height: 30px;
+  left: -15px; /* 调整左边距，使图片更靠左 */
+  width: 50px;
+  height: 50px;
+  margin-top: 40px; /* 往下一点 */
   cursor: pointer;
   transform: rotate(180deg);
 }
