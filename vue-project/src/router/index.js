@@ -1,11 +1,12 @@
 import {createRouter, createWebHistory} from 'vue-router'
 // @ts-ignore
 import HomeView from '@/components/HomeView.vue'
-import TestView from "@/components/TestView.vue";
+import TransferView from "@/components/TransferView.vue";
 import IntroView from "@/components/IntroView.vue";
 import PurchaseView from "@/components/PurchaseView.vue";
 import ToBuy from "@/components/toBuy.vue";
 import ToSell from "@/components/toSell.vue";
+
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,9 +17,9 @@ const router = createRouter({
             component: HomeView
         },
         {
-            path: '/test',
-            name: 'Test',
-            component: TestView
+            path: '/transfer',
+            name: 'Transfer',
+            component: TransferView
         },
         {
             path: '/intro',
@@ -41,11 +42,7 @@ const router = createRouter({
             component: ToSell
         },
 
-        // {
-        //     path: '/test',
-        //     name: 'Test',
-        //     component: testView
-        // },
+ 
     ]
 })
 

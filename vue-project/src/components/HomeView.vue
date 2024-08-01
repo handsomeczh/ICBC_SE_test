@@ -75,7 +75,7 @@ const goToMain = () => {
 
 // 转赠界面跳转
 const goToGift = () => {
-  router.push({name: 'Test'});
+  router.push({name: 'Transfer'});
 };
 
 // 提现和买入跳转
