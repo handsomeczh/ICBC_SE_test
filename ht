@@ -1,0 +1,149 @@
+[33mcommit 2ee5518b234f980a924eae870727bf78c3e75d05[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mSummer[m[33m, [m[1;31morigin/Summer[m[33m)[m
+Author: Chennian-Zhao <3188891768@qq.com>
+Date:   Thu Aug 1 15:02:58 2024 +0800
+
+    转赠界面初始化，页面逻辑合并
+
+[33mcommit f2a3f02c0cc37bb617b4e45c011ba0f86576da40[m[33m ([m[1;31morigin/czh[m[33m)[m
+Author: chenzehan <282567367@qq.com>
+Date:   Wed Jul 31 16:37:06 2024 +0800
+
+    图片
+
+[33mcommit 02f6fc76681bf35c9f97278ef98b49177ceb0c09[m
+Author: chenzehan <282567367@qq.com>
+Date:   Wed Jul 31 16:27:01 2024 +0800
+
+    图片
+
+[33mcommit 49a45643f71add98b44852d4ade721fa633d984f[m
+Author: chenzehan <282567367@qq.com>
+Date:   Tue Jul 30 14:16:51 2024 +0800
+
+    tobuy  tosell
+
+[33mcommit 4afb7e8d9ff729feb0ff631913d065fb5d506c31[m
+Author: chenzehan <282567367@qq.com>
+Date:   Mon Jul 29 14:26:55 2024 +0800
+
+    纠正数据不正确问题
+
+[33mcommit 966b7d1650f41c9db0273d0db6b1e4f14b9564dd[m
+Author: chenzehan <282567367@qq.com>
+Date:   Fri Jul 26 15:05:26 2024 +0800
+
+    finish
+
+[33mcommit e1c32c33747070c68a1783a612a08163967b56b9[m
+Author: chenzehan <282567367@qq.com>
+Date:   Fri Jul 26 11:30:34 2024 +0800
+
+    图片修改
+
+[33mcommit 759673eeae7501ec37847914871f997cdaae8373[m
+Author: chenzehan <282567367@qq.com>
+Date:   Fri Jul 26 09:39:54 2024 +0800
+
+    换装扮样式调整
+
+[33mcommit eeceda34739dad2285d8ebbc41739d1092fd223c[m
+Author: chenzehan <282567367@qq.com>
+Date:   Fri Jul 26 09:31:26 2024 +0800
+
+    换装扮样式调整
+
+[33mcommit e609565e186b46de44a45eb582e01179bd92f7ad[m
+Author: chenzehan <282567367@qq.com>
+Date:   Thu Jul 25 17:00:26 2024 +0800
+
+    tobuy
+
+[33mcommit ad1d64e6430026a2ee13d3b59885b35d43c11538[m
+Author: chenzehan <282567367@qq.com>
+Date:   Thu Jul 25 16:25:57 2024 +0800
+
+    快捷购买弹窗css样式完成
+
+[33mcommit 2f8e5d0b70a620c4678a411f8a8706e28f7ca421[m
+Author: chenzehan <282567367@qq.com>
+Date:   Thu Jul 25 14:37:33 2024 +0800
+
+    主页界面css样式完成
+
+[33mcommit b4a80ae00a2fc98c3f7d706c0bdd5de162d8b551[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: chenzehan <282567367@qq.com>
+Date:   Thu Jul 25 10:28:44 2024 +0800
+
+    修改主界面的按钮和快捷购买弹窗的金豆位置
+
+[33mcommit 058d1aa698863f9142502e4c44360f0efe194893[m
+Author: chenzehan <282567367@qq.com>
+Date:   Thu Jul 25 08:47:13 2024 +0800
+
+    ui图插入
+
+[33mcommit 26359216345d9d2f74080a096db3d1f251f554e1[m
+Author: chenzehan <282567367@qq.com>
+Date:   Fri Jul 19 11:22:40 2024 +0800
+
+    主页、弹窗和跳转逻辑实现
+
+[33mcommit 2eec9f6275591697e32919a2882c1ebfa718547a[m
+Merge: dbdbc8d 3f894e5
+Author: chenzehan <282567367@qq.com>
+Date:   Fri Jul 19 10:24:05 2024 +0800
+
+    Merge remote-tracking branch 'origin/main'
+
+[33mcommit 3f894e511db5abf258405586cd3bf97fd82e15a3[m
+Merge: 0ca1eb3 ead29cc
+Author: shuishuimoy <81504844+shuishuimoy@users.noreply.github.com>
+Date:   Fri Jul 19 09:14:39 2024 +0800
+
+    Merge pull request #1 from Chennian-Zhao/sq_huang
+    
+            modified:   vue-project/package-lock.json
+
+[33mcommit ead29cc0874869195bafc0911e1f1ef1bf1aa594[m
+Author: sqhuang <913245116@qq.com>
+Date:   Fri Jul 19 08:49:34 2024 +0800
+
+            modified:   vue-project/package-lock.json
+            modified:   vue-project/package.json
+            modified:   vue-project/src/App.vue
+            new file:   vue-project/src/assets/global.css
+            new file:   vue-project/src/assets/image1.png
+            new file:   vue-project/src/assets/image2.png
+            new file:   vue-project/src/assets/image3.png
+            modified:   vue-project/src/assets/main.css
+            new file:   "vue-project/src/assets/\351\207\221\346\236\235\347\216\211\345\217\266.png"
+            new file:   "vue-project/src/assets/\351\207\221\346\236\235\347\216\211\345\217\2662.png"
+            new file:   "vue-project/src/assets/\351\207\221\346\236\235\347\216\211\345\217\2663.png"
+            new file:   "vue-project/src/assets/\351\207\221\346\236\235\347\216\211\345\217\2664.png"
+            new file:   vue-project/src/components/toBuy.vue
+            new file:   vue-project/src/components/toSell.vue
+            modified:   vue-project/src/main.js
+
+[33mcommit dbdbc8d2d4fe68528e32632aba2f75f19b06479d[m
+Author: chenzehan <282567367@qq.com>
+Date:   Wed Jul 17 10:16:26 2024 +0800
+
+    test push
+
+[33mcommit 8562921a567aba151ca1857eb366aefa7d9d4570[m
+Author: chenzehan <282567367@qq.com>
+Date:   Wed Jul 17 10:15:16 2024 +0800
+
+    test
+
+[33mcommit 0ca1eb3714bc0ff25c081ec243cdba9cc5d9b834[m
+Author: Chennian-Zhao <3188891768@qq.com>
+Date:   Wed Jul 17 09:57:25 2024 +0800
+
+    提交测试
+
+[33mcommit 41a4471ed461ff8712d7c2e60fac720bb841eb5e[m
+Author: Chennian-Zhao <3188891768@qq.com>
+Date:   Wed Jul 17 09:56:48 2024 +0800
+
+    初始化

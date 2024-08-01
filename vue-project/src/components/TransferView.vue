@@ -13,14 +13,14 @@
   </template>
   
   <script>
-//   export default {
-//     name: 'Transfer',
-//     methods: {
-//       goToGiftSettlementPage() {
-//         this.$router.push({ name: 'GiftSettlement' })
-//       }
-//     }
-//   }
+  export default {
+    name: 'Transfer',
+    methods: {
+      goToGiftSettlementPage() {
+        this.$router.push({ name: 'GiftSettlement' });
+      }
+    }
+  };
   </script>
   
   <style scoped>

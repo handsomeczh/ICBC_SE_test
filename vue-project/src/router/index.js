@@ -6,7 +6,7 @@ import IntroView from "@/components/IntroView.vue";
 import PurchaseView from "@/components/PurchaseView.vue";
 import ToBuy from "@/components/toBuy.vue";
 import ToSell from "@/components/toSell.vue";
-
+import GiftSettlement from '@/components/GiftSettlement.vue'; 
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +40,11 @@ const router = createRouter({
             path: '/tosell',
             name: 'ToSell',
             component: ToSell
+        },
+        {
+            path: '/giftsettlement',
+            name: 'GiftSettlement',
+            component: GiftSettlement
         },
 
  
