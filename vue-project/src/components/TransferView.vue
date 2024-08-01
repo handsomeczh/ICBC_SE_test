@@ -42,6 +42,7 @@
   
   .gift-button {
     background-color: #f0c040;
+    
     border: none;
     padding: 10px 20px;
     cursor: pointer;
