@@ -71,14 +71,16 @@ const form = ref({
 
 // 提交表单方法
 const submitForm = () => {
-  ElMessage({
-    message: '表单已提交！',
-    type: 'success',
-  })
+  // ElMessage({
+  //   message: '表单已提交！',
+  //   type: 'success',
+  // })
   // 处理表单提交逻辑
   // console.log(`克数: ${grams.value}`)
   // console.log(`预计到账金额: ${expectedAmount.value}`)
   // console.log(`到账方式: ${paymentMethod.value}`)
+
+  router.push("/")
 }
 
 const goBack = () => {

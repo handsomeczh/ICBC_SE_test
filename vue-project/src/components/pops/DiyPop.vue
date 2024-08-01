@@ -1,16 +1,16 @@
 <template>
   <el-button type="text" class="personalize" plain @click="goToDiyPop = true"></el-button>
   <el-dialog :show-close="false"
-      v-model="goToDiyPop"
-      width="98%"
-      class="diy-dialog-center"
+             v-model="goToDiyPop"
+             width="98%"
+             class="diy-dialog-center"
   >
     <el-scrollbar height="400px">
       <div>
         <el-row class="demo-can" :gutter="20">
           <el-col v-for="(item, index) in goldCanSkins" :key="index" :span="6">
             <div class="block" :class="{selected: selectedGoldCanSkin === index}" @click="selectGoldCanSkin(index)">
-              <el-avatar  shape="square" :size="80" :src="item"/>
+              <el-avatar shape="square" :size="80" :src="item"/>
             </div>
           </el-col>
         </el-row>
@@ -18,7 +18,7 @@
 
       <div>
         <el-row class="demo-gold" :gutter="20">
-          <el-col v-for="(item, index) in goldBeanSkins" :key="index" :span="6">
+          <el-col v-for="(item, index) in state.goldBeanSkins" :key="index" :span="6">
             <div class="block" :class="{selected: selectedGoldBeanSkin === index}" @click="selectGoldBeanSkin(index)">
               <el-avatar shape="square" :size="50" :src="item"/>
             </div>
@@ -38,13 +38,12 @@ import {ref} from "vue";
 import can1 from '@/assets/小兔罐@2x.png';
 import can2 from '@/assets/小象罐@2x.png';
 import can3 from '@/assets/小鼠罐@2x.png';
+
 const goldCanSkins = [can1, can2, can3];
-// 导入图片并存储在数组中
-import bean1 from '@/assets/豆子1@2x.png';
-import bean2 from '@/assets/豆子2@2x.png';
-import bean3 from '@/assets/豆子3@2x.png';
-import bean4 from '@/assets/豆子4@2x.png';
-const goldBeanSkins = [bean1, bean2, bean3,bean4];
+// 背景图
+import state from "@/api/global_variable.js";
+import backgroundImagePath1 from '@/assets/bg@2x@2x.png';
+import backgroundImagePath0 from '@/assets/兔子罐.jpg';
 
 const goToDiyPop = ref(false);
 
@@ -54,6 +53,11 @@ const selectedGoldBeanSkin = ref(null);
 
 const selectGoldCanSkin = (index) => {
   selectedGoldCanSkin.value = index;
+  if (index === 0) {
+    state.backGroundUrl = backgroundImagePath0
+  } else if (index === 1) {
+    state.backGroundUrl = backgroundImagePath1
+  }
 };
 
 const selectGoldBeanSkin = (index) => {
@@ -65,9 +69,6 @@ const diyConfirm = () => {
   goToDiyPop.value = false;
 };
 
-const getImageUrl = (name) => {
-  return new URL(`../assets/${name}`, import.meta.url).href;
-};
 </script>
 
 <style scoped>
@@ -81,7 +82,7 @@ const getImageUrl = (name) => {
   background-size: contain;
 }
 
-.demo-can{
+.demo-can {
   padding-top: 50px;
   padding-left: 10px;
   text-align: center;
@@ -104,8 +105,9 @@ const getImageUrl = (name) => {
 
 .confirm-button {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  left: 50%;
+  bottom: -10px;
+  transform: translate(-50%, -50%);
 }
 </style>
 

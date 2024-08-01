@@ -6,6 +6,10 @@ import IntroView from "@/components/IntroView.vue";
 import PurchaseView from "@/components/PurchaseView.vue";
 import ToBuy from "@/components/toBuy.vue";
 import ToSell from "@/components/toSell.vue";
+import Blindbox from '@/components/Blindbox.vue'
+import Lucky2 from '@/components/Lucky2.vue'
+import Lucky1 from '@/components/lucky1.vue'
+import Disney from '@/components/disney.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +45,26 @@ const router = createRouter({
             component: ToSell
         },
 
+        {
+            path: '/blindbox',
+            name: 'blindbox',
+            component: Blindbox
+        },
+        {
+            path: '/Lucky2',
+            name: 'Lucky2',
+            component: Lucky2
+        },
+        {
+            path: '/lucky1',
+            name: 'lucky1',
+            component: Lucky1
+        },
+        {
+            path: '/disney',
+            name: 'disney',
+            component: Disney
+        }
         // {
         //     path: '/test',
         //     name: 'Test',
@@ -50,3 +74,6 @@ const router = createRouter({
 })
 
 export default router
+
+
+
