@@ -22,11 +22,6 @@ const router = createRouter({
             component: HomeView
         },
         {
-            path: '/transfer',
-            name: 'Transfer',
-            component: TransferView
-        },
-        {
             path: '/intro',
             name: 'Intro',
             component: IntroView
