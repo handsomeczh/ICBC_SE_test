@@ -1,7 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
 // @ts-ignore
 import HomeView from '@/components/HomeView.vue'
-import TransferView from "@/components/TransferView.vue";
 import IntroView from "@/components/IntroView.vue";
 import PurchaseView from "@/components/PurchaseView.vue";
 import ToBuy from "@/components/toBuy.vue";
@@ -12,7 +11,7 @@ import Lucky1 from '@/components/lucky1.vue'
 import Disney from '@/components/disney.vue'
 import TransferView from "@/components/TransferView.vue";
 import GiftSettlement from '@/components/GiftSettlement.vue';
-import GiftSettlement from '@/components/GiftSettlement.vue'; 
+
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
