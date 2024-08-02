@@ -113,7 +113,7 @@ const initChart = () => {
           splitLine: {
             show: false
           },
-          min: new Date(2024, 5, 1).getTime(),
+          min: new Date(2024, 7, 14).getTime(),
           max: new Date(2024, 7, 16).getTime(),
         },
         yAxis: {

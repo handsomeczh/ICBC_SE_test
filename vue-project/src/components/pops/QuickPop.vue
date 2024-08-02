@@ -1,8 +1,8 @@
 <template>
   <div class="gold-buttons">
-    <el-button type="text" class="gold-button gold-button1" plain @click="goToQuickPop = true, gram = 1"></el-button>
-    <el-button type="text" class="gold-button gold-button5" plain @click="goToQuickPop = true, gram = 5"></el-button>
-    <el-button type="text" class="gold-button gold-button10" plain @click="goToQuickPop = true, gram = 10"></el-button>
+    <el-button type="text" class="gold-button gold-button1" plain @click="goToQuickPop = true, state.quickGram = 1"></el-button>
+    <el-button type="text" class="gold-button gold-button5" plain @click="goToQuickPop = true, state.quickGram = 5"></el-button>
+    <el-button type="text" class="gold-button gold-button10" plain @click="goToQuickPop = true, state.quickGram = 10"></el-button>
   </div>
   <el-dialog :show-close="false"
       v-model="goToQuickPop"
@@ -13,12 +13,12 @@
       <div class="current">当前实时金价 <span style="color: #cfac34">{{ state.currentPrice.toFixed(2) }}元/g</span>
       </div>
       <el-form-item>
-        克数(g)：{{ gram }}
+        克数(g)：{{ state.quickGram }}
       </el-form-item>
-      <el-form-item class="el-form-item__content">金额(元)：{{ (state.currentPrice * gram).toFixed(2) }}</el-form-item>
+      <el-form-item class="el-form-item__content">金额(元)：{{ (state.currentPrice * state.quickGram).toFixed(2) }}</el-form-item>
     </el-form>
     <template #footer>
-      <el-button color="#f5c153" size="large"  @click="handleConfirm">确认</el-button>
+      <el-button color="#f5c153" size="large" class="confirm-button"  @click="handleConfirm">确认</el-button>
     </template>
   </el-dialog>
 </template>
@@ -29,11 +29,10 @@ import router from "@/router/index.js";
 import state from "@/api/global_variable.js";
 
 const goToQuickPop = ref(false);
-const gram = ref(0);
 const handleConfirm = () => {
   // todo 这里可以添加提交表单的逻辑
   goToQuickPop.value = false;
-  router.push({name: 'Purchase'});
+  router.push('/tobuy');
 };
 </script>
 
@@ -64,6 +63,13 @@ const handleConfirm = () => {
 .gold-button10 {
   background-image: url('@/assets/10克.png'); /* 背景图片路径 */
 }
+.confirm-button {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%, -50%);
+}
+
 
 </style>
 
@@ -79,6 +85,7 @@ const handleConfirm = () => {
   background-position: center;
   padding-top: 10px;
 }
+
 
 .el-dialog__footer {
   padding-top: 1px;

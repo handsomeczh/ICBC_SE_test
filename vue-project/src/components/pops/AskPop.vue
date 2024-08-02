@@ -2,6 +2,7 @@
   <!-- todo 向我提问弹窗 -->
   <el-button type="text" class="ask-me" plain @click="openDialog"></el-button>
   <el-dialog
+      :show-close="false"
       v-model="goToAskPop"
       class="ask-me-dialog"
   >
@@ -140,7 +141,7 @@ onMounted(() => {
 .ask-me {
   width: 110px;
   height: 110px;
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 50px;
   margin-left: 20px;
   flex: 1 1% 1%;

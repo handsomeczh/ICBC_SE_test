@@ -1,7 +1,5 @@
-
-
 <template>
-  <div class="home-view">
+  <div :style="homeViewStyle">
     <el-row class="header">
       <!-- 返回上一级界面 -->
       <div class="header-title">持有金豆</div>
@@ -9,20 +7,20 @@
     </el-row>
     <!-- region todo 持有数据 -->
     <el-row justify="space-between" class="footer">
-        <div class="stat-item">
-          <div class="title">昨日收益</div>
-          <div class="value">¥ {{ yesterdayEarn.toFixed(2) }}</div>
-        </div>
-        <div class="stat-item">
-          <div class="title">持有收益</div>
-          <div class="value">¥ {{ earn.toFixed(2) }}</div>
-        </div>
-        <div class="stat-item">
-          <div class="title">累计收益</div>
-          <div class="value">¥ {{ allEarn.toFixed(2) }}</div>
-        </div>
+      <div class="stat-item">
+        <div class="title">昨日收益</div>
+        <div class="value">¥ {{ yesterdayEarn.toFixed(2) }}</div>
+      </div>
+      <div class="stat-item">
+        <div class="title">持有收益</div>
+        <div class="value">¥ {{ earn.toFixed(2) }}</div>
+      </div>
+      <div class="stat-item">
+        <div class="title">累计收益</div>
+        <div class="value">¥ {{ allEarn.toFixed(2) }}</div>
+      </div>
       <!-- 提醒事项 -->
-<!--      <WarningPop />-->
+      <!--      <WarningPop />-->
     </el-row>
     <!-- endregion 持有数据 -->
 
@@ -32,21 +30,20 @@
     <!-- todo 向我提问弹窗 -->
     <AskPop/>
 
-    <el-row  class="main-content">
+    <el-row class="main-content">
       <!-- todo 积存金走势 -->
       <GoldPricePop/>
     </el-row>
 
-    <el-row  class="main-content">
+    <el-row class="main-content">
       <!-- todo 转赠界面跳转 -->
       <el-button type="text" class="gift" @click="goToGift"></el-button>
     </el-row>
 
-    <el-row  class="main-content">
+    <el-row class="main-content">
       <!-- todo 个性化弹窗 -->
       <DiyPop/>
     </el-row>
-
 
     <!-- region todo 提现和买入窗口跳转 -->
     <el-row class="actions">
@@ -58,13 +55,14 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import {ref, computed} from 'vue';
 import {useRouter} from 'vue-router';
 import AskPop from '@/components/pops/AskPop.vue'; // 确保路径正确
 import GoldPricePop from '@/components/pops/GoldPricePop.vue';
 import QuickPop from "@/components/pops/QuickPop.vue";
 import DiyPop from "@/components/pops/DiyPop.vue";
-import WarningPop from "@/components/pops/WarningPop.vue";
+import backgroundImagePath from '@/assets/bg@2x@2x.png';
+import state from "@/api/global_variable.js"; // 导入图片
 
 const router = useRouter();
 
@@ -91,20 +89,26 @@ const number = ref(30.2);
 const yesterdayEarn = ref(2.08);
 const earn = ref(17.50);
 const allEarn = ref(347.00);
+
+// 定义图片路径
+if (state.flag == true) {
+  state.backGroundUrl = backgroundImagePath;
+  state.flag = false
+}
+// 计算样式
+const homeViewStyle = computed(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100vh',
+  width: '100vw',
+  backgroundImage: `url(${state.backGroundUrl})`, // 直接使用路径
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center'
+}));
 </script>
 
 <style scoped>
-.home-view {
-  display: flex;
-  flex-direction: column;
-  height: 100vh; /* 使用视口高度 */
-  width: 100vw; /* 使用视口高度 */
-  background-image: url('@/assets/bg@2x@2x.png'); /* 背景图片路径 */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .header {
   height: 6vh; /* 固定高度 */
   width: 100%; /* 固定宽度 */
@@ -201,8 +205,6 @@ const allEarn = ref(347.00);
   border-color: #f9b628; /* 按钮边框色，与背景色一致 */
   color: #5a4e39; /* 字体颜色 */
 }
-
-
 
 
 </style>
